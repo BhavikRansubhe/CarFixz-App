@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="product"
+            type="com.br14x.carfixz.models.Product" />
+        <variable
+            name="shopInterface"
+            type="com.br14x.carfixz.adapters.ShopListAdapter.ShopInterface" />
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{()->shopInterface.onItemClick(product)}"
+        >
+
+        <ImageView
+            android:id="@+id/productImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/seat_cover"
+            android:productImage="@{product.imageURL}"
+            />
+
+        <TextView
+            android:id="@+id/productNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{product.name}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{String.valueOf(product.price)+'₹'}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+        <TextView
+            android:id="@+id/availableTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{product.available ?`Available` : `Unavailable` }"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="@{product.available ? @color/colorPrimary : @color/red}" />
+
+        <Button
+            android:id="@+id/addToCartButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:enabled="@{product.available}"
+            android:text="Add To Cart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:onClick="@{()->shopInterface.addItem(product)}"
+            />
+    </LinearLayout>
+</layout>

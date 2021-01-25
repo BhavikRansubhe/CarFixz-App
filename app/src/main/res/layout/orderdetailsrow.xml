@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Item Name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_margin="5dp"
+            android:id="@+id/orderNametextView"
+            />
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Quantity"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_margin="5dp"
+            android:id="@+id/orderQuantitytextView"
+            />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

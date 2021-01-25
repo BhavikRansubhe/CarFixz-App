@@ -1,0 +1,8 @@
+#Making Cart Notification badge
+->WORKFLOW
+
+1.Create Shape File for Badge
+2.Layout for menu item with badge to be shown in menu
+3.use the layout in menu.xml file (with caution?)
+4.use onCreateOptions menu to handle action view
+5.show current quantity on badge

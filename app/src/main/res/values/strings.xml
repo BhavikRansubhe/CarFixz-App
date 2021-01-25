@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Car Fixz</string>
+    <string name="spinner_title">Select your vehicle brand</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="facebook_app_id">397398441414699</string>
+    <string name="fb_login_protocol_scheme">fb397398441414699</string>
+    <string name="shop_by_car">Shop By Car</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
+
+    <string-array name="quantity_string_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5(Max)</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+
+</resources>

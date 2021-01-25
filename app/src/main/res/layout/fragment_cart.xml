@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".views.CartFragment">
+    
+    <LinearLayout
+        android:orientation="vertical"
+        tools:context=".views.CartFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cartRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/cart_row"
+            tools:itemCount="2"
+        />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/orderTotalTextView"
+            android:layout_gravity="end"
+            android:layout_margin="8dp"
+            android:text="Total : 0 ₹ "
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/paymentmethod"
+            android:layout_gravity="end"
+            android:layout_margin="8dp"
+            android:text="Payment Method: Cash On Delivery(COD)"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estimated Time of Delivery:"
+                android:layout_marginLeft="20dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 days "
+                android:layout_marginLeft="20dp"
+                android:id="@+id/ed"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/placeOrderButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Place Order"
+            android:layout_gravity="end"
+            android:background="@drawable/buttton_background"
+            android:backgroundTint="@color/colorBlack"
+            android:textColor="@color/white"
+            />
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

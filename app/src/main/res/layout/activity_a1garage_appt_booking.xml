@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".A1garageApptBooking">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".A1garageApptBooking">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="149dp"
+        android:layout_height="149dp"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="131dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/a1logo" />
+
+    <TextView
+        android:id="@+id/cNameTextView"
+        android:layout_width="360dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="25dp"
+        android:padding="5dp"
+        android:text="CUSTOMER NAME"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/cNameInput"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="Enter your name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cNameTextView" />
+
+    <TextView
+        android:id="@+id/cRegNoTextView"
+        android:layout_width="360dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="25dp"
+        android:padding="5dp"
+        android:text="VEHICLE REGISTRATION NUMBER"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cNameInput" />
+
+    <EditText
+        android:id="@+id/cRegNoInput"
+        android:layout_width="365dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="Enter Vehicle's Registration Number"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cRegNoTextView" />
+
+    <TextView
+        android:id="@+id/brandTextView"
+        android:layout_width="360dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="25dp"
+        android:padding="5dp"
+        android:text="VEHICLE BRAND"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cRegNoInput" />
+
+    <Spinner
+        android:id="@+id/brandSpinner"
+        android:layout_width="360dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="25dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/brandTextView" />
+
+    <TextView
+        android:id="@+id/modelTextView"
+        android:layout_width="360dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="25dp"
+        android:padding="5dp"
+        android:text="VEHICLE MODEL"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/brandSpinner" />
+
+    <Spinner
+        android:id="@+id/modelSpinner"
+        android:layout_width="360dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modelTextView" />
+
+    <TextView
+        android:id="@+id/cContactTextView"
+        android:layout_width="360dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="25dp"
+        android:padding="5dp"
+        android:text="CONTACT NO."
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modelSpinner" />
+
+    <EditText
+        android:id="@+id/cContactInput"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="Enter Contact No."
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cContactTextView" />
+
+    <Button
+        android:id="@+id/bookButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/buttton_background"
+        android:backgroundTint="@color/colorBlack"
+        android:textColor="@color/white"
+        android:text="Next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cContactInput" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,147 @@
+package com.br14x.carfixz;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.icu.text.DateFormat;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+
+
+public class A1garageApptBooking_1 extends A1garageApptBooking implements DatePickerDialog.OnDateSetListener,AdapterView.OnItemSelectedListener  {
+
+
+    String date,timeSelected;
+    Button selectDate,bookButton;
+    Spinner selectTime;
+    private DatabaseReference mDatabase,mDatabase1;
+    TextView suggestions;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_a1garage_appt_booking_1);
+
+
+        selectDate = findViewById(R.id.selectDateButton);
+        selectTime = findViewById(R.id.timeSpinner);
+        bookButton = findViewById(R.id.bookApptButton);
+        selectTime.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        suggestions=findViewById(R.id.complaintsTextBox);
+        final LoadingDialog loadingDialog = new LoadingDialog(A1garageApptBooking_1.this);
+
+        List<String> timeSlots = new ArrayList<String>();
+        timeSlots.add("Select Time Slot");
+        timeSlots.add("11:00 am - 12:00 pm");
+        timeSlots.add("12:00 pm - 1:00 pm");
+        timeSlots.add("1:00 pm - 2:00 pm");
+        timeSlots.add("2:00 pm - 3:00 pm");
+        timeSlots.add("3:00 pm - 4:00 pm");
+        timeSlots.add("4:00 pm - 5:00 pm");
+
+
+        selectDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog();
+            }
+
+        });
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, timeSlots);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        selectTime.setAdapter(dataAdapter);
+
+
+        bookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeNewBooking();
+                loadingDialog.startAlertDialog();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.dismissDialog();
+                        Intent intent = new Intent(A1garageApptBooking_1.this, Appt_Booking_final.class);
+                        intent.putExtra("garageName", "A1 Garage");
+                        intent.putExtra("BookingID", A1garageApptBooking.bid);
+                        intent.putExtra("Date", date);
+                        intent.putExtra("Time", timeSelected);
+                        startActivity(intent);
+                    }
+                }, 4000);
+            }
+        });
+    }
+
+
+
+    public void writeNewBooking(){
+        String owner_name,owner_contact,car_reg_no,car_brand,car_model;
+        owner_name=A1garageApptBooking.ownername;
+        owner_contact=A1garageApptBooking.ownercontact;
+        car_reg_no=A1garageApptBooking.regno;
+        car_brand=A1garageApptBooking.vehicle_brand;
+        car_model=A1garageApptBooking.vehicle_model;
+        CharSequence sugg=suggestions.getText().toString().trim();
+        ApptInfo appt=new ApptInfo(A1garageApptBooking.bid,owner_name,owner_contact,car_reg_no,car_brand,car_model,timeSelected,date,"A1 Garage",sugg);
+        MainActivity.apptinfo.add(appt);
+        mDatabase.child("Bookings").child("A1 Garage").child(A1garageApptBooking.bid).setValue(appt);
+    }
+    public void showDatePickerDialog(){
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                this,
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis()-1000);
+        datePickerDialog.show();
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        date =  + dayOfMonth + "/" + (month+1) + "/" + year;
+        Toast.makeText(this, date, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        timeSelected=parent.getItemAtPosition(position).toString();
+        Toast.makeText(this,timeSelected, Toast.LENGTH_SHORT).show();
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+}
+
+

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "375238544779",
+    "firebase_url": "https://car-fixz.firebaseio.com",
+    "project_id": "car-fixz",
+    "storage_bucket": "car-fixz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375238544779:android:0b695e571062396219b38e",
+        "android_client_info": {
+          "package_name": "com.br14x.carfixz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375238544779-pdgeap9vm0a61jq4jac7srebcgpdk6on.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.br14x.carfixz",
+            "certificate_hash": "5abf82793c7ddc89bf011c84b28227f9d2b49aef"
+          }
+        },
+        {
+          "client_id": "375238544779-dmepkogmbf4norb4knd9v65cmhtsncra.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlgnpoW0PSLA5vsd-yBmm4pzGFdKJ4hIM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375238544779-dmepkogmbf4norb4knd9v65cmhtsncra.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
